@@ -1,5 +1,6 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
   # GET /highlights.json
