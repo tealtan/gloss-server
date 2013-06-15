@@ -1,8 +1,10 @@
 class CreateHighlights < ActiveRecord::Migration
   def change
     create_table :highlights do |t|
-      t.text :selectedtext
-      t.string :pageurl
+      t.string :selected_text
+      t.string :surrounding_text
+      t.string :page_url
+      t.integer :user_id
 
       t.timestamps
     end

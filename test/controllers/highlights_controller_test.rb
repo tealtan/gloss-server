@@ -18,7 +18,7 @@ class HighlightsControllerTest < ActionController::TestCase
 
   test "should create highlight" do
     assert_difference('Highlight.count') do
-      post :create, highlight: { pageurl: @highlight.pageurl, selectedtext: @highlight.selectedtext }
+      post :create, highlight: { page_url: @highlight.page_url, selected_text: @highlight.selected_text, surrounding_text: @highlight.surrounding_text, user_id: @highlight.user_id }
     end
 
     assert_redirected_to highlight_path(assigns(:highlight))
@@ -35,7 +35,7 @@ class HighlightsControllerTest < ActionController::TestCase
   end
 
   test "should update highlight" do
-    patch :update, id: @highlight, highlight: { pageurl: @highlight.pageurl, selectedtext: @highlight.selectedtext }
+    patch :update, id: @highlight, highlight: { page_url: @highlight.page_url, selected_text: @highlight.selected_text, surrounding_text: @highlight.surrounding_text, user_id: @highlight.user_id }
     assert_redirected_to highlight_path(assigns(:highlight))
   end
 

@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  selectedtext: MyText
-  pageurl: MyString
+  selected_text: MyString
+  surrounding_text: MyString
+  page_url: MyString
+  user_id: 1
 
 two:
-  selectedtext: MyText
-  pageurl: MyString
+  selected_text: MyString
+  surrounding_text: MyString
+  page_url: MyString
+  user_id: 1

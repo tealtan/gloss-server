@@ -1,10 +1,10 @@
 GlossServer::Application.routes.draw do
+  resources :highlights
+
   devise_for :users
   root :to => "static_pages#home"
   
   match '/purpose',    to: 'static_pages#purpose',    via: 'get'
-
-  resources :highlights
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

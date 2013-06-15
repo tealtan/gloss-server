@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Selectedtext:</strong>
-  <%= @highlight.selectedtext %>
+  <strong>Selected text:</strong>
+  <%= @highlight.selected_text %>
 </p>
 
 <p>
-  <strong>Pageurl:</strong>
-  <%= @highlight.pageurl %>
+  <strong>Surrounding text:</strong>
+  <%= @highlight.surrounding_text %>
+</p>
+
+<p>
+  <strong>Page url:</strong>
+  <%= @highlight.page_url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @highlight.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_highlight_path(@highlight) %> |
