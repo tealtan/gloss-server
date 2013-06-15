@@ -8,7 +8,12 @@
 </head>
 <body>
 
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% if user_signed_in? %>
+    Signed in as... <%= current_user.email %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
+  <% end %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
