@@ -69,6 +69,6 @@ class HighlightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def highlight_params
-      params.require(:highlight).permit(:selected_text, :surrounding_text, :page_url, :user_id)
+      params.require(:highlight).permit(:selected_text, :surrounding_text, :page_url, :page_title, :user_id)
     end
 end

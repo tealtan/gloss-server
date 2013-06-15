@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130615191142) do
+ActiveRecord::Schema.define(version: 20130615195239) do
 
   create_table "highlights", force: true do |t|
-    t.string   "selected_text"
-    t.string   "surrounding_text"
+    t.text     "selected_text",    limit: 255
+    t.text     "surrounding_text", limit: 255
     t.string   "page_url"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "page_title"
   end
 
   create_table "users", force: true do |t|
