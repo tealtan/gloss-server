@@ -1,0 +1,25 @@
+<%= form_for(@highlight) do |f| %>
+  <% if @highlight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@highlight.errors.count, "error") %> prohibited this highlight from being saved:</h2>
+
+      <ul>
+      <% @highlight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :selectedtext %><br>
+    <%= f.text_area :selectedtext %>
+  </div>
+  <div class="field">
+    <%= f.label :pageurl %><br>
+    <%= f.text_field :pageurl %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

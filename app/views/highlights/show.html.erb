@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Selectedtext:</strong>
+  <%= @highlight.selectedtext %>
+</p>
+
+<p>
+  <strong>Pageurl:</strong>
+  <%= @highlight.pageurl %>
+</p>
+
+<%= link_to 'Edit', edit_highlight_path(@highlight) %> |
+<%= link_to 'Back', highlights_path %>
