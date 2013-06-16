@@ -39,7 +39,7 @@ $j('.sentence').on('click', function() {
     // );
 
     $j.ajax({
-      url:"http://localhost:3000/highlights.json",
+      url:"http://gloss-server.herokuapp.com/highlights.json",
       type:"POST",
       data: JSON.stringify({highlight: data}),
       contentType:"application/json; charset=utf-8",
