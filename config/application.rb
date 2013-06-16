@@ -22,5 +22,16 @@ module GlossServer
 
     # Do not access database or load models when precompiling assets.
     config.assets.initialize_on_precompile = false
+
+    # Use rack-cors to allow any origin, any resource
+    config.middleware.insert_before Warden::Manager, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          headers: ['Origin', 'Accept', 'Content-Type'],
+          methods: [:get, :put, :create, :delete, :options]
+      end
+    end
+
   end
 end

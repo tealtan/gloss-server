@@ -16,6 +16,8 @@ gem 'jbuilder', '1.0.2'
 
 gem 'devise', '3.0.0.rc'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

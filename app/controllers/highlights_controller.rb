@@ -1,5 +1,6 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
   before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
@@ -49,6 +50,15 @@ class HighlightsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @highlight.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def options
+    if true
+      # set_access_control_headers
+      head :ok
+    else
+      head :forbidden
     end
   end
 
