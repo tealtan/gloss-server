@@ -1,3 +1,5 @@
+// Bookmarklet Version 0.1
+
 // Set up variables
 var pageTitle = document.title;
 var pageUrl = window.location.href; // TODO: Search for canonical URL
@@ -19,10 +21,8 @@ $j.ajaxSetup({
   type: "POST",
   contentType: "application/json; charset=utf-8",
   headers: {
-    'X-CSRF-Token': "Vg3/I/0ToEZbXw2MBnlXdwdDiHu39QNbLyVPW5FVQRA="
+    'X-CSRF-Token': "edyZuLOuzpJ9j2tZvk8dHNBLSAOdac6OHznThDrZHbY="
   }
-  // xhrFields: { withCredentials: true },
-  // crossDomain: true
 });
 
 // Add toggling of highlighting on click
@@ -44,12 +44,7 @@ $j('.sentence').on('click', function() {
       user_id: 1
     };
 
-    // $j.ajax({
-    //   url:"http://localhost:3000/highlights.json",
-    //   data: JSON.stringify({highlight: data}),
-    // });
-
-    $j.post("http://localhost:3000/highlights.json", 
+    $j.post("http://gloss-server.herokuapp.com/highlights.json", 
       JSON.stringify({highlight: data})
     );
 
