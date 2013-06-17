@@ -28,7 +28,7 @@ module GlossServer
       allow do
         origins '*'
         resource '*',
-          headers: ['Origin', 'Accept', 'Content-Type'],
+          headers: :any,
           methods: [:get, :put, :create, :delete, :options]
       end
     end

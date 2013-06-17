@@ -15,6 +15,16 @@ $j('p').each(function() {
   $j(this).html(sentences);
 });
 
+$j.ajaxSetup({
+  type: "POST",
+  contentType: "application/json; charset=utf-8",
+  headers: {
+    'X-CSRF-Token': "Vg3/I/0ToEZbXw2MBnlXdwdDiHu39QNbLyVPW5FVQRA="
+  }
+  // xhrFields: { withCredentials: true },
+  // crossDomain: true
+});
+
 // Add toggling of highlighting on click
 
 $j('.sentence').on('click', function() {
@@ -34,17 +44,14 @@ $j('.sentence').on('click', function() {
       user_id: 1
     };
 
-    // $j.post("http://localhost:3000/highlights.json?auth_token=Xor7UrsinPngU8ihJqxx", 
-    //   JSON.stringify({highlight: data})
-    // );
+    // $j.ajax({
+    //   url:"http://localhost:3000/highlights.json",
+    //   data: JSON.stringify({highlight: data}),
+    // });
 
-    $j.ajax({
-      url:"http://gloss-server.herokuapp.com/highlights.json",
-      type:"POST",
-      data: JSON.stringify({highlight: data}),
-      contentType:"application/json; charset=utf-8",
-      dataType:"json"
-    });
+    $j.post("http://localhost:3000/highlights.json", 
+      JSON.stringify({highlight: data})
+    );
 
   }
   $j(this).toggleClass('highlighted');
@@ -64,7 +71,3 @@ if (document.createStyleSheet) {
 else {
     document.getElementsByTagName("body")[0].appendChild(link);
 }
-
-// Indicate successful load of bookmarklet
-// var title = document.title;
-// document.title = "\u270D " + title;

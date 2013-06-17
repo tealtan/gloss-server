@@ -1,7 +1,7 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
-  before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  # skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  # before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
   # GET /highlights.json
@@ -53,14 +53,14 @@ class HighlightsController < ApplicationController
     end
   end
 
-  def options
-    if true
-      # set_access_control_headers
-      head :ok
-    else
-      head :forbidden
-    end
-  end
+  # def options
+  #   if access_allowed?
+  #     set_access_control_headers
+  #     head :ok
+  #   else
+  #     head :forbidden
+  #   end
+  # end
 
   # DELETE /highlights/1
   # DELETE /highlights/1.json
@@ -82,4 +82,16 @@ class HighlightsController < ApplicationController
     def highlight_params
       params.require(:highlight).permit(:selected_text, :surrounding_text, :page_url, :page_title, :user_id)
     end
+
+    # def set_access_control_headers 
+    #   headers['Access-Control-Allow-Origin'] = request.env['HTTP_ORIGIN']
+    #   headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    #   headers['Access-Control-Max-Age'] = '1000'
+    #   headers['Access-Control-Allow-Headers'] = '*,x-requested-with'
+    # end
+
+    # def access_allowed?
+    #   allowed_sites = [request.env['HTTP_ORIGIN']] #you might query the DB or something, this is just an example
+    #   return allowed_sites.include?(request.env['HTTP_ORIGIN'])    
+    # end
 end
