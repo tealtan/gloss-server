@@ -14,7 +14,7 @@ Gloss Server
 - [ ] Provide staging / dev bookmarklet depending on environment
 
 #### Bookmarklet
-- [ ] Save canonical url if available
+- [x] Save canonical url if available
 - [ ] Clean surrounding text of newlines
 
 #### Design
