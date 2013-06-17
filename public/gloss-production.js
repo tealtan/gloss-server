@@ -1,4 +1,4 @@
-// Bookmarklet Version 0.1
+// Bookmarklet Version 0.2
 
 // Set up variables
 var pageTitle = document.title;
@@ -6,6 +6,10 @@ var pageUrl = window.location.href; // TODO: Search for canonical URL
 
 // No Conflict the jQuery
 $j = jQuery.noConflict(true);
+
+// Use canonical url if available
+var canonicalURL = $j('link[rel=canonical]').attr('href');
+if (canonicalURL != null) { pageUrl = canonicalURL; }
 
 // Break paragraphs into spans of class "sentence" 
 // (Sentence detection could be refined)
