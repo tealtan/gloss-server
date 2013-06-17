@@ -7,6 +7,7 @@ Gloss Server
 
 #### Backend
 - [ ] Bookmarklet authentication posting (should only be able to modify your own highlights)
+- [ ] Set up pinging to prevent Heroku dyno idling
 
 #### Frontend
 - [ ] Enable debugging view on dev environment
