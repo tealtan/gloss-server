@@ -16,6 +16,8 @@ Gloss Server
 #### Bookmarklet
 - [x] Save canonical url if available
 - [ ] Clean surrounding text of newlines
+- [ ] Solve problem with surrounding text slurping up entire article if paragraphs are broken by <br>s.
+- [ ] Add deleting of highlights on second click
 
 #### Design
 - [ ] Homepage
