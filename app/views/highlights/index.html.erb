@@ -6,15 +6,21 @@
 
 <% @highlights.each do |highlight| %>
   <div class="highlight">
+
     <p><%= highlight.selected_text %></p>
     <p><%= highlight.surrounding_text %></p>
-    <a href="<%= highlight.page_url %>"><%= highlight.page_title %></a>
-    <span><%= highlight.page_url %></span>
+
+    <a href="<%= highlight.page_url %>">
+      <span class="title"><%= highlight.page_title %></span>
+      <span class="url"><%= highlight.page_url %></span>
+    </a>
+
     <ul>
       <li><%= highlight.user_id %> ---</li>
       <li><%= link_to 'Show', highlight %></li>
       <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
       <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
+    
   </div>
 <% end %>

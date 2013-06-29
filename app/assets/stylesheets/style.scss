@@ -92,6 +92,16 @@ p {
       font-family: $serif-20;
       font-size: 18px;
     }
+
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: none; }
+    a:hover .title { text-decoration: underline; }
+    .url { color: #ccc; }
+
     ul {
       margin: 10px 0 0 0; padding: 10px 0 0 0;
       border-top: 1px dotted #ddd;
