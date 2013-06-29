@@ -5,21 +5,31 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/xgs1xjl.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body>
+<body class="<%= yield(:page_class) %>">
 
-  <% if user_signed_in? %>
-    Signed in as... <%= current_user.email %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    Auth Token: <%= current_user.authentication_token %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
-  <% end %>
+  <nav>
+    <span>
+    <% if user_signed_in? %>
+      Signed in as... <%= current_user.email %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      Auth Token: <%= current_user.authentication_token %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
+    <% end %>
+    </span>
+  </nav>
+
+  <div id="shell">
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   
   <%= yield %>
+
+  </div>
 
 </body>
 </html>

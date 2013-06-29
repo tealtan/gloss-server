@@ -1,0 +1,109 @@
+/* Fonts */
+
+$sans-10: "soleil", Helvetica, Arial, sans-serif;
+$sans-20: "tablet-gothic-compressed", Helvetica, Arial, sans-serif;
+
+$serif-10: "sirba-web", Times, Georgia, serif;
+$serif-20: "maiola", Times, Georgia, serif;
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: $serif-20;
+}
+
+body {
+  padding: 40px;
+}
+
+#shell {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fafaf0;
+  padding: 70px;
+}
+
+nav {
+  position: absolute;
+  top: 16px;
+  right: 40px;
+  height: 40px;
+
+  span {
+
+    color: #ccc;
+    font-family: $serif-20;
+    font-size: 16px;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+h1 {
+  font-family: $serif-20;
+  font-size: 32px;
+  line-height: 1.3;
+
+  max-width: 800px;
+}
+
+p {
+  font-family: $serif-20;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* Admin Styles */
+
+.admin-index {
+
+  .button-action {
+    display: inline-block;
+    padding: 10px;
+    background-color: #e5e1de;
+    border-radius: 3px;
+
+    text-decoration: none;
+    font-family: $sans-10;
+    font-size: 13px;
+    color: #666;
+
+    &:hover {
+      color: #666;
+      background-color: #ded8d5;
+    }
+  }
+
+  .highlight {
+
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 0px 30px 0px;
+
+    p {
+      font-family: $serif-20;
+      font-size: 18px;
+    }
+    ul {
+      margin: 10px 0 0 0; padding: 10px 0 0 0;
+      border-top: 1px dotted #ddd;
+
+      font-family: $sans-10;
+      font-size: 12px;
+
+      li {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+}

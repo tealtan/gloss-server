@@ -1,35 +1,20 @@
+<% provide(:page_class, 'admin-index') %>
+
 <h1>Listing highlights</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Selected text</th>
-      <th>Surrounding text</th>
-      <th>Page url</th>
-      <th>Page title</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
 
-  <tbody>
-    <% @highlights.each do |highlight| %>
-      <tr>
-        <td><%= highlight.selected_text %></td>
-        <td><%= highlight.surrounding_text %></td>
-        <td><%= highlight.page_url %></td>
-        <td><%= highlight.page_title %></td>
-        <td><%= highlight.user_id %></td>
-        <td><%= link_to 'Show', highlight %></td>
-        <td><%= link_to 'Edit', edit_highlight_path(highlight) %></td>
-        <td><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Highlight', new_highlight_path %>
+<% @highlights.each do |highlight| %>
+  <div class="highlight">
+    <p><%= highlight.selected_text %></p>
+    <p><%= highlight.surrounding_text %></p>
+    <a href="<%= highlight.page_url %>"><%= highlight.page_title %></a>
+    <span><%= highlight.page_url %></span>
+    <ul>
+      <li><%= highlight.user_id %> ---</li>
+      <li><%= link_to 'Show', highlight %></li>
+      <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
+      <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+<% end %>
