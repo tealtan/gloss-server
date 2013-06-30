@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  before_create :ensure_unique_username
-  before_save :ensure_authentication_token
+  before_save :ensure_authentication_token, :ensure_unique_username
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
