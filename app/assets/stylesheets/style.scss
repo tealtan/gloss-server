@@ -66,6 +66,7 @@ p {
 .admin-index {
 
   .button-action {
+    position: absolute;
     display: inline-block;
     padding: 10px;
     background-color: #e5e1de;
@@ -93,13 +94,10 @@ p {
       font-size: 18px;
     }
 
-    .title {
-      font-size: 16px;
-      font-weight: 500;
-    }
-
     a:hover { text-decoration: none; }
     a:hover .title { text-decoration: underline; }
+
+    .title { font-size: 16px; font-weight: 500; }
     .url { color: #ccc; }
 
     ul {
@@ -113,6 +111,7 @@ p {
         display: inline-block;
         margin-right: 5px;
         font-size: 14px;
+        a:hover { text-decoration: underline; }
       }
     }
   }

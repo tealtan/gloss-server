@@ -1,27 +1,21 @@
+<% provide(:page_class, 'admin-index') %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Selected text:</strong>
-  <%= @highlight.selected_text %>
-</p>
+<%= link_to '← Back', highlights_path, :class => "button-action" %>
 
-<p>
-  <strong>Surrounding text:</strong>
-  <%= @highlight.surrounding_text %>
-</p>
+<div class="highlight">
 
-<p>
-  <strong>Page title:</strong>
-  <%= @highlight.page_title %>
-  <br/>
-  <strong>Page url:</strong>
-  <%= @highlight.page_url %>
-</p>
+  <p><%= @highlight.selected_text %></p>
+  <p><%= @highlight.surrounding_text %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @highlight.user_id %>
-</p>
+  <a href="<%= @highlight.page_url %>">
+    <span class="title"><%= @highlight.page_title %></span>
+    <span class="url"><%= @highlight.page_url %></span>
+  </a>
 
-<%= link_to 'Edit', edit_highlight_path(@highlight) %> |
-<%= link_to 'Back', highlights_path %>
+  <ul>
+    <li><%= link_to 'Edit', edit_highlight_path(@highlight) %></li>
+  </ul>
+  
+</div>
