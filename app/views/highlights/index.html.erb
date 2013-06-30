@@ -1,6 +1,7 @@
+<% provide(:title, 'All Highlights') %>
 <% provide(:page_class, 'admin-index') %>
 
-<h1>Admin / Highlights</h1>
+<h1>Highlights</h1>
 
 <%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
 
@@ -16,7 +17,7 @@
     </a>
 
     <ul>
-      <li><%= highlight.user_id %> ---</li>
+      <li><%= highlight.user_id %> —</li>
       <li><%= link_to 'Show', highlight %></li>
       <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
       <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
