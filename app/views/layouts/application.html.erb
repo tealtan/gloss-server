@@ -13,9 +13,10 @@
   <nav>
     <span>
     <% if user_signed_in? %>
-      Signed in as... <%= current_user.email %> / <%= current_user.username %>
+      Signed in as... <%= current_user.email %> / <%= current_user.username %> / 
+      Auth Token: <%= current_user.authentication_token %> / 
+      <a href="/users/edit">Edit Profile</a> / 
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      Auth Token: <%= current_user.authentication_token %>
     <% else %>
       <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
     <% end %>
