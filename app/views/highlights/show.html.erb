@@ -7,8 +7,7 @@
 
 <div class="highlight">
 
-  <p><%= @highlight.selected_text %></p>
-  <p><%= @highlight.surrounding_text %></p>
+  <%= combine_highlight(@highlight.selected_text, @highlight.surrounding_text) %>
 
   <a href="<%= @highlight.page_url %>">
     <span class="title"><%= @highlight.page_title %></span>
