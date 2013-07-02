@@ -11,6 +11,7 @@
 <body class="<%= yield(:page_class) %>">
 
   <nav>
+    <a href="/" class="logo">Gloss</a>
     <span>
     <% if user_signed_in? %>
       Signed in as... <%= current_user.email %> / <%= current_user.username %> / 
