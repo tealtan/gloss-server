@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   def ensure_unique_username
-    if self.username.blank? || User.where(username: self.username).size > 0
+    if self.username.blank? || User.where(username: self.username).count > 1
       username_part = self.email.split("@").first
       new_username = username_part.dup 
       num = 2
-      while(User.where(username: new_username).size > 0)
+      while(User.where(username: new_username).count > 1)
         new_username = "#{username_part}#{num}"
         num += 1
       end
