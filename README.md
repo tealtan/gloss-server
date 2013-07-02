@@ -14,6 +14,7 @@ Gloss Server
 #### Frontend
 
 - [ ] Enable debugging view on dev environment
+- [ ] Hide admin controls
 - [ ] Provide bookmarklet saving to user
 - [ ] Provide staging / dev bookmarklet depending on environment
 
@@ -31,5 +32,6 @@ Gloss Server
 - [ ] Homepage
 - [ ] Sign up and Sign In pages
 - [ ] User profile page
-- [ ] Highlight page
-- [ ] Stream / town square page
+- [X] Highlight page
+- [X] Stream page
+- [ ] Town square page
