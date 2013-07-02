@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  before_create :ensure_unique_username
   before_save :ensure_authentication_token, :ensure_unique_username
   
   # Include default devise modules. Others available are:
@@ -8,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   def ensure_unique_username
-    if self.username.blank? || User.where(username: self.username).count > 0
+    if self.username.blank? || User.where(username: self.username).count > 1
       username_part = self.email.split("@").first
       new_username = username_part.dup
       num = 2
