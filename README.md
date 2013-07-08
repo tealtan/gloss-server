@@ -15,6 +15,7 @@ Gloss Server
 
 - [ ] Enable debugging view on dev environment
 - [ ] Hide admin controls
+- [ ] Add pagination to highlights index page
 - [ ] Provide bookmarklet saving to user
 - [ ] Provide staging / dev bookmarklet depending on environment
 
