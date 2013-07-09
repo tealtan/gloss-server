@@ -23,6 +23,7 @@ Gloss Server
 
 - [x] Save canonical url if available
 - [ ] Do some checking of bad canonical urls (ex: http://www.insidehighered.com/blogs/library-babel-fish/throwing-books-each-other )
+- [ ] Remove URL parameters
 - [ ] Figure out better representation of loading.
 - [ ] Clean surrounding text of newlines
 - [ ] Solve problem with surrounding text slurping up entire article if paragraphs are broken by br tags.
