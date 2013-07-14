@@ -7,7 +7,7 @@ class HighlightsController < ApplicationController
   # GET /highlights.json
   def index
     # @highlights = Highlight.all
-    @highlights = Highlight.order("id").page(params[:page]).per(25)
+    @highlights = Highlight.order("id DESC").page(params[:page]).per(25)
   end
 
   # GET /highlights/1
