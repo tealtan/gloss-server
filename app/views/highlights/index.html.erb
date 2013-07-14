@@ -26,4 +26,8 @@
     
   </div>
 <% end %>
-<% paginate @highlights %>
+
+<ul class="pagination">
+  <li><%= link_to_previous_page @highlights, '← Previous' %></li>
+  <li><%= link_to_next_page @highlights, 'Next →' %></li>
+</ul>

@@ -79,6 +79,19 @@ p {
   line-height: 1.4;
 }
 
+.pagination {
+  width: 500px;
+  margin: 50px auto 0 auto;
+  padding: 0px;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    font-family: $sans-10;
+    font-size: 14px;
+  }
+}
+
 /* Admin Styles */
 
 .admin-index {
