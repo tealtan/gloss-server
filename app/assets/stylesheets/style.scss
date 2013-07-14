@@ -86,7 +86,7 @@ p {
 
   li {
     display: inline-block;
-    margin-right: 10px;
+    a { margin-right: 10px; }
     font-family: $sans-10;
     font-size: 14px;
   }
