@@ -1,12 +1,12 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
+  before_filter :check_admin, only: [:edit, :update, :destroy]
   # skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
   # before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
   # GET /highlights.json
   def index
-    # @highlights = Highlight.all
     @highlights = Highlight.order("id DESC").page(params[:page]).per(25)
   end
 
@@ -82,6 +82,12 @@ class HighlightsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def highlight_params
       params.require(:highlight).permit(:selected_text, :surrounding_text, :page_url, :page_title, :user_id)
+    end
+
+    def check_admin
+      if !current_user.try(:admin?)
+        redirect_to '/'
+      end
     end
 
     # def set_access_control_headers 

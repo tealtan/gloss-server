@@ -13,7 +13,9 @@
   </a>
 
   <ul>
-    <li><%= link_to 'Edit', edit_highlight_path(@highlight) %></li>
+    <% if current_user.try(:admin?) %>
+      <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
+    <% end %>
   </ul>
   
 </div>
