@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630022905) do
+ActiveRecord::Schema.define(version: 20130714180133) do
 
   create_table "highlights", force: true do |t|
     t.text     "selected_text",    limit: 255
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130630022905) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130630022905) do
     t.datetime "updated_at"
     t.string   "authentication_token"
     t.string   "username"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
