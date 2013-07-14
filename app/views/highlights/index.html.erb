@@ -16,10 +16,12 @@
     </a>
 
     <ul>
-      <li><%= highlight.user_id %> —</li>
-      <li><%= link_to 'Show', highlight %></li>
-      <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
-      <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= User.find(highlight.user_id).username %> —</li>
+      <li><%= link_to '#', highlight %></li>
+      <% if current_user.try(:admin?) %>
+        <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
+        <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
     </ul>
     
   </div>
