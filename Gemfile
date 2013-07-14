@@ -15,6 +15,7 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 
 gem 'devise', '3.0.0.rc'
+gem 'kaminari', '0.14.1'
 
 gem 'rack-cors', :require => 'rack/cors'
 
