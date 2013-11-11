@@ -5,14 +5,15 @@ var urlParams = "?token="+window.gloss_token+"&user="+window.gloss_id;
 
 // Set up variables
 var pageTitle = document.title;
-var pageUrl = window.location.href; // TODO: Search for canonical URL
+var pageUrl = window.location.href;
 
 // No Conflict the jQuery
 $j = jQuery.noConflict(true);
 
 // Use canonical url if available
 var canonicalURL = $j('link[rel=canonical]').attr('href');
-if (canonicalURL != null) { pageUrl = canonicalURL; }
+if ((canonicalURL != null) && (canonicalURL.substring(0,4) == "http"))
+  { pageUrl = canonicalURL; }
 
 // Break paragraphs into spans of class "sentence" 
 // (Sentence detection could be refined)
@@ -56,7 +57,7 @@ $j('.sentence').on('click', function() {
   $j(this).toggleClass('highlighted');
 });
 
-// Load highlighting CSS
+// Load highlighting CSS styles
 
 var link = document.createElement("link");
 var url = "http://tanmade.com/making/gloss-v2/gloss.css"
