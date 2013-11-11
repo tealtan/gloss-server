@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def purpose
   end
+
+  def install
+  end
 end

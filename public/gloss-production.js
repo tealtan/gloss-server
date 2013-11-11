@@ -1,7 +1,7 @@
 // Bookmarklet Version 0.3
 
 // User settings
-var urlParams = "?token=7EVvwbHhAiaFyY8ussT5"+"&user=1";
+var urlParams = "?token="+window.gloss_token+"&user="+window.gloss_id;
 
 // Set up variables
 var pageTitle = document.title;

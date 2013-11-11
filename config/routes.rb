@@ -8,6 +8,7 @@ GlossServer::Application.routes.draw do
   root :to => "static_pages#home"
   
   match '/purpose',    to: 'static_pages#purpose',    via: 'get'
+  match '/install',    to: 'static_pages#install',    via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

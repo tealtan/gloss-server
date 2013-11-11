@@ -15,7 +15,7 @@
     <span>
     <% if user_signed_in? %>
       Signed in as... <%= current_user.email %> / <%= current_user.username %> / 
-      Auth Token: <%= current_user.authentication_token %> / 
+      <%= link_to "Bookmarklet", "/install" %> / 
       <a href="/users/edit">Edit Profile</a> / 
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <% else %>

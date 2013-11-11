@@ -1,0 +1,15 @@
+<% provide(:title, 'Install') %>
+
+<h1>Bookmarklet</h1>
+
+<% if Rails.env.production? %>
+  <p>To install, drag <a id="bookmarklet" href="javascript:(function(e,t,n,r,i,s,o,u){if(!(i=e.jQuery)||n>i.fn.jquery||r(i)){s=t.createElement('script');s.type='text/javascript';s.src='//ajax.googleapis.com/ajax/libs/jquery/'+n+'/jquery.min.js';s.onload=s.onreadystatechange=function(){if(!o&&(!(u=this.readyState)||u=='loaded'||u=='complete')){r((i=e.jQuery).noConflict(1),o=1);i(s).remove()}};t.body.appendChild(s)}})(window,document,'1.8.3',function(e,t){x=document.createElement('script');x.type='text/javascript';x.src='http://gloss-server.herokuapp.com/gloss-development.js';window.gloss_id='<%= current_user.id.to_s %>';window.gloss_token='<%= current_user.authentication_token.to_s %>';window.JQ=e;window.jQuery=e;document.body.appendChild(x)});">✍ gloss</a> into your browser’s bookmark bar.</p>
+<% end %>
+
+<% if Rails.env.development? %>
+  <p>To install, drag <a id="bookmarklet" href="javascript:(function(e,t,n,r,i,s,o,u){if(!(i=e.jQuery)||n>i.fn.jquery||r(i)){s=t.createElement('script');s.type='text/javascript';s.src='//ajax.googleapis.com/ajax/libs/jquery/'+n+'/jquery.min.js';s.onload=s.onreadystatechange=function(){if(!o&&(!(u=this.readyState)||u=='loaded'||u=='complete')){r((i=e.jQuery).noConflict(1),o=1);i(s).remove()}};t.body.appendChild(s)}})(window,document,'1.8.3',function(e,t){x=document.createElement('script');x.type='text/javascript';x.src='http://localhost:3000/gloss-development.js';window.gloss_id='<%= current_user.id.to_s %>';window.gloss_token='<%= current_user.authentication_token.to_s %>';window.JQ=e;window.jQuery=e;document.body.appendChild(x)});">✍ gloss-dev</a> into your browser’s bookmark bar.</p>
+
+  <p>ID: <%= current_user.id %></p>
+  <p>Auth Token: <%= current_user.authentication_token %></p>
+
+<% end %>
