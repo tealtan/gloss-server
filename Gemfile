@@ -4,7 +4,8 @@ ruby '2.0.0'
 gem 'rails', '4.0.0.rc2'
 
 group :development do
-  gem 'sqlite3', '1.3.7'
+  # gem 'sqlite3', '1.3.7'
+  gem 'pg', '0.15.1'
 end
 
 gem 'sass-rails', '4.0.0.rc2'
