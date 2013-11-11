@@ -1,4 +1,7 @@
-// Bookmarklet Version 0.2
+// Bookmarklet Version 0.3
+
+// User settings
+var urlParams = "?token=7EVvwbHhAiaFyY8ussT5"+"&user=1";
 
 // Set up variables
 var pageTitle = document.title;
@@ -23,10 +26,7 @@ $j('p').each(function() {
 
 $j.ajaxSetup({
   type: "POST",
-  contentType: "application/json; charset=utf-8",
-  headers: {
-    'X-CSRF-Token': "Vg3/I/0ToEZbXw2MBnlXdwdDiHu39QNbLyVPW5FVQRA="
-  }
+  contentType: "application/json; charset=utf-8"
 });
 
 // Add toggling of highlighting on click
@@ -48,7 +48,7 @@ $j('.sentence').on('click', function() {
       user_id: 1
     };
 
-    $j.post("http://localhost:3000/highlights.json", 
+    $j.post("http://localhost:3000/highlights.json"+urlParams, 
       JSON.stringify({highlight: data})
     );
 

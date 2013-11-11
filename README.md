@@ -8,6 +8,7 @@ Gloss Server
 #### Backend
 
 - [ ] Site-side authentication (see Friendfeed-bookmarklet-iframe message passing)
+- [ ] Better pagination of highlights
 - [ ] Set up pinging to prevent Heroku dyno idling
 - [X] Add creation of unique usernames on registration
 
