@@ -22,7 +22,7 @@ $j('p').each(function() {
   var sentences = $j(this)
     .text()
     .replace(/([A-Z][a-z]?\.)\s?/g, "$1&nbsp;")
-    .replace(/(.*?[\.!?]["”]?(\s|$))/g, '<span class="sentence">$1</span>$2');
+    .replace(/(.*?[\.!?]["”]?)(\s|$)/g, '<span class="sentence">$1</span>$2');
   $j(this).html(sentences);
 });
 
