@@ -1,7 +1,7 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
   before_filter :check_admin, only: [:edit, :update, :destroy]
-  # skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
   # before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
@@ -88,6 +88,13 @@ class HighlightsController < ApplicationController
       if !current_user.try(:admin?)
         redirect_to '/'
       end
+    end
+
+    def verify_authenticity_token
+      # Test if user’s ID matches their token
+      @user = User.find_by_id(params[:user].to_i)
+      @user.authentication_token == params[:token].to_s
+      # TODO: Should probably return a proper error if check fails.
     end
 
     # def set_access_control_headers 

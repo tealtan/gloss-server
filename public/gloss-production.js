@@ -1,15 +1,19 @@
-// Bookmarklet Version 0.2
+// Bookmarklet Version 0.3
+
+// User settings
+var urlParams = "?token="+window.gloss_token+"&user="+window.gloss_id;
 
 // Set up variables
 var pageTitle = document.title;
-var pageUrl = window.location.href; // TODO: Search for canonical URL
+var pageUrl = window.location.href;
 
 // No Conflict the jQuery
 $j = jQuery.noConflict(true);
 
 // Use canonical url if available
 var canonicalURL = $j('link[rel=canonical]').attr('href');
-if (canonicalURL != null) { pageUrl = canonicalURL; }
+if ((canonicalURL != null) && (canonicalURL.substring(0,4) == "http"))
+  { pageUrl = canonicalURL; }
 
 // Break paragraphs into spans of class "sentence" 
 // (Sentence detection could be refined)
@@ -24,10 +28,7 @@ $j('p').each(function() {
 
 $j.ajaxSetup({
   type: "POST",
-  contentType: "application/json; charset=utf-8",
-  headers: {
-    'X-CSRF-Token': "edyZuLOuzpJ9j2tZvk8dHNBLSAOdac6OHznThDrZHbY="
-  }
+  contentType: "application/json; charset=utf-8"
 });
 
 // Add toggling of highlighting on click
@@ -49,7 +50,7 @@ $j('.sentence').on('click', function() {
       user_id: 1
     };
 
-    $j.post("http://gloss-server.herokuapp.com/highlights.json", 
+    $j.post("http://localhost:3000/highlights.json"+urlParams, 
       JSON.stringify({highlight: data})
     );
 
@@ -57,7 +58,7 @@ $j('.sentence').on('click', function() {
   $j(this).toggleClass('highlighted');
 });
 
-// Load highlighting CSS
+// Load highlighting CSS styles
 
 var link = document.createElement("link");
 var url = "http://tanmade.com/making/gloss-v2/gloss.css"
