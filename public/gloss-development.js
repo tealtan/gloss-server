@@ -21,7 +21,8 @@ if ((canonicalURL != null) && (canonicalURL.substring(0,4) == "http"))
 $j('p').each(function() {
   var sentences = $j(this)
     .text()
-    .replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, '<span class="sentence">$1</span>$2');
+    .replace(/([A-Z][a-z]?\.)\s?/g, "$1&nbsp;")
+    .replace(/(.*?[\.!?]["”]?)(\s|$)/g, '<span class="sentence">$1</span>$2');
   $j(this).html(sentences);
 });
 
