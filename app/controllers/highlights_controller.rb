@@ -2,12 +2,13 @@ class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
   before_filter :check_admin, only: [:edit, :update, :destroy]
   before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
-  # before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = Highlight.order("id DESC").page(params[:page]).per(25)
+    @highlights = Highlight.order("id DESC").page(params[:page]).per(10)
+    # @highlights_list = Highlight.where(user_id: current_user).where('created_at BETWEEN ? AND ? ', 1.month.ago.beginning_of_month , 1.month.ago.end_of_month).order("id DESC")
+    @highlights_by_month = Highlight.where(user_id: current_user).select("id, user_id, page_title, page_url, created_at").order("id DESC").find(:all).uniq_by{|highlight| highlight.page_title}.group_by { |highlight| highlight.created_at.strftime("%b %G") }
   end
 
   # GET /highlights/1
@@ -71,6 +72,11 @@ class HighlightsController < ApplicationController
       format.html { redirect_to highlights_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /highlights/from/{query}
+  def from
+    @highlights = Highlight.order("id DESC").where("page_title = ?", params[:title])
   end
 
   private

@@ -1,7 +1,7 @@
 /* Fonts */
 
-$sans-10: "jaf-bernina-sans", Helvetica, Arial, sans-serif;
-$serif-10: "edita", Times, Georgia, serif;
+$sans-10: "freight-sans-pro", Helvetica, Arial, sans-serif;
+$serif-10: "freight-text-pro", Times, Georgia, serif;
 
 * {
   box-sizing: border-box;
@@ -136,7 +136,7 @@ a#bookmarklet {
     p {
       font-family: $serif-10;
       font-size: 20px;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.5;
       color: #bbb;
       .selected { color: #000; }

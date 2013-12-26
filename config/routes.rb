@@ -3,6 +3,8 @@ GlossServer::Application.routes.draw do
   
   resources :highlights
   # match '/highlights',    to: 'highlights#options',    via: 'options'
+    match '/highlights',    to: 'highlights#options',    via: 'options', via: 'get'
+    match '/from', to: 'highlights#from', via: 'get'
 
   devise_for :users
   root :to => "static_pages#home"

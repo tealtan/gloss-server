@@ -3,20 +3,7 @@
 
 <h1>Highlights</h1>
 
-<% @highlights_by_month.each do |month_year, highlights| %>
-  <h2><%= month_year %></h2>
-  <ul>
-
-   <% highlights.each do |highlight| %>
-     <li>
-      <%= link_to highlight.page_title, root_url + '/from?title=' + url_encode(highlight.page_title) %>
-    </li>
-   <% end %>
-
-  </ul>
-<% end %>
-
-<%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
+<!-- <%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %> -->
 
 <% @highlights.each do |highlight| %>
   <div class="highlight">
@@ -39,8 +26,3 @@
     
   </div>
 <% end %>
-
-<ul class="pagination">
-  <li><%= link_to_previous_page @highlights, '← Previous' %></li>
-  <li><%= link_to_next_page @highlights, 'Next →' %></li>
-</ul>
