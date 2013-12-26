@@ -76,7 +76,7 @@ class HighlightsController < ApplicationController
 
   # GET /highlights/from/{query}
   def from
-    @highlights = Highlight.order("id DESC").where("page_title = ?", params[:title])
+    @highlights = Highlight.order("id DESC").where("page_title LIKE ?", "%"+params[:title]+"%")
   end
 
   private
