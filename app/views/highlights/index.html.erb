@@ -21,12 +21,12 @@
 <% @highlights.each do |highlight| %>
   <div class="highlight">
 
-    <%= combine_highlight(highlight.selected_text, highlight.surrounding_text) %>
-
     <a href="<%= highlight.page_url %>">
-      <span class="title"><%= highlight.page_title %></span>
+      <span class="title"><%= highlight.page_title %></span><br/>
       <span class="url"><%= highlight.page_url %></span>
     </a>
+
+    <%= combine_highlight(highlight.selected_text, highlight.surrounding_text) %>
 
     <ul>
       <li><%= User.find(highlight.user_id).username %> —</li>
