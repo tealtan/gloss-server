@@ -2,15 +2,14 @@ GlossServer::Application.routes.draw do
   match '/*path' => 'application#options', :via => :options
   
   resources :highlights
-  # match '/highlights',    to: 'highlights#options',    via: 'options'
-    match '/highlights',    to: 'highlights#options',    via: 'options', via: 'get'
-    match '/from', to: 'highlights#from', via: 'get'
+    match '/highlights',    to: 'highlights#options',      via: 'options'
+    match '/from',          to: 'highlights#from',         via: 'get'
 
   devise_for :users
   root :to => "static_pages#home"
   
-  match '/purpose',    to: 'static_pages#purpose',    via: 'get'
-  match '/install',    to: 'static_pages#install',    via: 'get'
+  match '/purpose',         to: 'static_pages#purpose',    via: 'get'
+  match '/install',         to: 'static_pages#install',    via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
