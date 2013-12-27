@@ -6,7 +6,7 @@ class HighlightsController < ApplicationController
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = Highlight.order("id DESC").page(params[:page]).per(10)
+    @highlights = Highlight.order("id DESC").page(params[:page]).per(2)
     # @highlights_list = Highlight.where(user_id: current_user).where('created_at BETWEEN ? AND ? ', 1.month.ago.beginning_of_month , 1.month.ago.end_of_month).order("id DESC")
     @highlights_by_month = Highlight.where(user_id: current_user).select("id, user_id, page_title, page_url, created_at").order("id DESC").find(:all).uniq_by{|highlight| highlight.page_title}.group_by { |highlight| highlight.created_at.strftime("%b %G") }
   end

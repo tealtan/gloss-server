@@ -13,8 +13,11 @@
   <%= combine_highlight(@highlight.selected_text, @highlight.surrounding_text) %>
 
   <ul>
+    <li><%= User.find(@highlight.user_id).username %> —</li>
+    <li><%= link_to time_ago_in_words(@highlight.created_at)+' ago', @highlight %></li>
     <% if current_user.try(:admin?) %>
       <li><%= link_to 'Edit', edit_highlight_path(@highlight) %></li>
+      <li><%= link_to 'Destroy', @highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <% end %>
   </ul>
   

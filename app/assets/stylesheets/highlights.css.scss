@@ -1,3 +1,111 @@
 // Place all the styles related to the Highlights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "vars";
+
+.highlight {
+  a:hover { text-decoration: none; }
+  a:hover .title { text-decoration: underline; }
+  .url { color: #ccc; }
+
+  p {
+    color: #bbb;
+    .selected { color: #000; }
+  }
+
+  ul {
+    font-family: $sans-10;
+    font-size: 12px;
+
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 14px;
+      a:hover { text-decoration: underline; }
+    }
+  }
+
+  .highlights-index & {
+    @extend .grid-width-col4;
+    padding: 0 40px 50px 0;
+
+    .title {
+      font-size: 16px; 
+      line-height: 1.3; 
+      font-style: italic;
+
+      display: inline-block;
+      min-height: 51px;
+    }
+    p {
+      .selected {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+    }
+    ul {
+      li, li a { color: #ccc; font-size: 13px; }
+    }
+  }
+
+  .highlights-detail & {
+    @extend .grid-width-col7;
+    margin: 0 auto;
+    padding: 30px 0px;
+
+    .title { font-size: 26px; line-height: 1.2; }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    ul {
+      margin: 10px 0 0 0;
+      padding: 10px 0 0 0;
+      border-top: 1px dotted #ddd;
+    }
+  }
+}
+
+.highlights-index {
+  h1 {
+    color: #333;
+    margin-bottom: 30px;
+  }
+}
+
+.highlights-index .highlights-listing {
+
+  h2 {
+    margin: 30px 0 0 0;
+  }
+
+  li {
+    list-style: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+
+    font-size: 16px;
+    line-height: 1.2;
+
+    &:last-of-type { border-bottom: 0px; }
+  }
+}
+
+/* LAYOUT */
+
+.highlights-index .highlights-explore {
+  width: 1000px;
+  min-height: 300px;
+  display: block;
+
+  .highlight {
+    float: left;
+  }
+}
+
+.highlights-index .highlights-listing {
+  border-top: 1px solid #eee;
+  padding-top: 50px;
+  clear: both;
+}

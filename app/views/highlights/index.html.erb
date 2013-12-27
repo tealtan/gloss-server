@@ -1,46 +1,54 @@
 <% provide(:title, 'All Highlights') %>
-<% provide(:page_class, 'admin-index') %>
+<% provide(:page_class, 'highlights-index') %>
 
-<h1>Highlights</h1>
+<aside>
+  <h1>Highlights</h1>
+  <p><em>Some of your recent highlights.</em></p>
 
-<% @highlights_by_month.each do |month_year, highlights| %>
-  <h2><%= month_year %></h2>
-  <ul>
-
-   <% highlights.each do |highlight| %>
-     <li>
-      <%= link_to highlight.page_title, root_url + '/from?title=' + url_encode(highlight.page_title) %>
-    </li>
-   <% end %>
-
+  <ul class="pagination">
+    <li><%= link_to_previous_page @highlights, '← Previous' %></li>
+    <li><%= link_to_next_page @highlights, 'Next →' %></li>
   </ul>
-<% end %>
 
-<%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
+  <%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
+</aside>
 
-<% @highlights.each do |highlight| %>
-  <div class="highlight">
+<div class="content">
 
-    <a href="<%= highlight.page_url %>">
-      <span class="title"><%= highlight.page_title %></span><br/>
-      <span class="url"><%= highlight.page_url %></span>
-    </a>
+  <div class="highlights-explore">
+  
+    <% @highlights.each do |highlight| %>
+      <div class="highlight">
 
-    <%= combine_highlight(highlight.selected_text, highlight.surrounding_text) %>
+        <ul>
+          <!-- <li><%= User.find(highlight.user_id).username %> —</li> -->
+          <li><%= link_to time_ago_in_words(highlight.created_at)+' ago', highlight %></li>
+        </ul>
 
-    <ul>
-      <li><%= User.find(highlight.user_id).username %> —</li>
-      <li><%= link_to '#', highlight %></li>
-      <% if current_user.try(:admin?) %>
-        <li><%= link_to 'Edit', edit_highlight_path(highlight) %></li>
-        <li><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <% end %>
-    </ul>
+        <a href="<%= highlight.page_url %>">
+          <span class="title"><%= highlight.page_title %></span><br/>
+        </a>
+
+        <p><span class="selected"><%= highlight.selected_text %></span></p>
+        
+      </div><!--end .highlights-->
+    <% end %>
+
+  </div><!--end .highlights-explore-->
+
+  <div class="highlights-listing">
+    <% @highlights_by_month.each do |month_year, highlights| %>
+      <h2><%= month_year %></h2>
+      <ul>
     
-  </div>
-<% end %>
+       <% highlights.each do |highlight| %>
+         <li>
+          <%= link_to highlight.page_title, root_url + '/from?title=' + url_encode(highlight.page_title) %>
+        </li>
+       <% end %>
+    
+      </ul>
+    <% end %>
+  </div><!--end .highlights-index-->
 
-<ul class="pagination">
-  <li><%= link_to_previous_page @highlights, '← Previous' %></li>
-  <li><%= link_to_next_page @highlights, 'Next →' %></li>
-</ul>
+</div><!--end .content-->

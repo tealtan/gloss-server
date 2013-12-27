@@ -1,0 +1,64 @@
+/*
+    GRID
+    Set up a 12-col grid with 100px columns and 10px gutters.
+
+    Desktop-size  100px *12 + 10px *11 = 1310px
+    Laptop-size   100px *10 + 10px *9  = 1090px
+    Tablet-size   100px  *7 + 10px *6  =  760px
+    Phone-size    100px  *3 + 10px *2  =  320px
+*/
+
+$gutter: 10px;
+$col-width: 100px;
+
+%grid-container {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%grid-width {
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: $gutter;
+}
+
+%grid-offset {
+  margin-left: 0px;
+}
+
+@for $i from 1 through 12 {
+  $size: $col-width * $i + $gutter * $i - $gutter;
+
+  .grid-container-col#{$i} {
+    @extend %grid-container;
+    max-width: $size;
+  }
+
+  .grid-width-col#{$i} {
+    @extend %grid-width;
+    max-width: $size;
+  }
+
+  .grid-offset-col#{$i} {
+    @extend %grid-offset;
+    margin-left: $size;
+  }
+}
+
+/*  
+    TYPOGRAPHY
+    Portrait, by Berton Hasebe. Licensed from Commercial Type.
+    Legato, by Evert Bloemsma.  Licensed from Fontshop.
+*/
+
+$serif-10:  "Portrait Web", Times, Georgia, serif;
+$sans-10:   "ff-legato-web", Helvetica, Arial, sans-serif;
+
+/*
+    COLORS
+*/
+
+/*
+    MIXINS
+*/
