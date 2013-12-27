@@ -29,4 +29,7 @@ GlossServer::Application.configure do
 
   # Set mailer host.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Automatically inject JavaScript needed for LiveReload
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 end

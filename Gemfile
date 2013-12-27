@@ -4,9 +4,14 @@ ruby '2.0.0'
 gem 'rails', '4.0.0.rc2'
 
 group :development do
-  # gem 'sqlite3', '1.3.7'
-  gem 'pg', '0.15.1'
+  # Set guard-related gems to false because they’re only running on command line, not the Rails app
+  gem 'guard', '>= 2.2.2',       :require => false
+  gem 'guard-livereload',        :require => false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',              :require => false
 end
+
+gem 'pg', '0.15.1'
 
 gem 'sass-rails', '4.0.0.rc2'
 gem 'uglifier', '2.1.1'
@@ -25,5 +30,4 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
 end
