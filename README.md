@@ -8,13 +8,13 @@ Gloss Server
 #### Backend
 
 - [X] Basic authentication
-- [ ] Better pagination of highlights
+- [X] Better pagination of highlights
 - [ ] Set up pinging to prevent Heroku dyno idling
 - [X] Add creation of unique usernames on registration
 
 #### Frontend
 
-- [ ] Enable debugging view on dev environment
+- [X] Enable debugging view on dev environment
 - [X] Hide admin controls
 - [X] Add pagination to highlights index page
 - [X] Provide bookmarklet saving to user
@@ -32,7 +32,7 @@ Gloss Server
 
 #### Design
 
-- [ ] Identity
+- [X] Identity
 - [ ] Homepage
 - [ ] Sign Up, Sign In pages
 - [ ] User profile page
