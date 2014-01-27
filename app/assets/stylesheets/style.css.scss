@@ -1,8 +1,12 @@
 @import "vars";
 
+body {
+  
+}
+
 #shell {
   @extend .grid-container-col12;
-  padding: 70px;
+  padding: 70px 70px 0 70px;
 }
 
 nav {
@@ -24,7 +28,7 @@ nav {
 
   li {
     list-style-type: none;
-    color: #333;
+    color: #ccc;
     font-family: $sans-10;
     font-size: 13px;
     line-height: 26px;
