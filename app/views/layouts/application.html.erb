@@ -11,17 +11,19 @@
 <body class="<%= yield(:page_class) %>">
 
   <nav>
-    <a href="/" class="logo">gloss – for reading online</a>
-    <span>
-    <% if user_signed_in? %>
-      Signed in as... <%= current_user.email %> · <%= current_user.username %> · 
-      <%= link_to "Bookmarklet", "/install" %> · 
-      <a href="/users/edit">Edit Profile</a> · 
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
-    <% end %>
-    </span>
+    <div class="container">
+    
+    <ul>
+      <li><a href="/" class="logo">gloss – for reading online</a></li>
+      <% if user_signed_in? %>
+        <li>@<%= current_user.username %> · <a href="/users/edit">Edit</a></li>
+        <li><%= link_to "Get Bookmarklet", "/install" %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path %> · <%= link_to "Register", new_user_registration_path %> · <a href="/">What is this?</a></li>
+      <% end %>
+    </ul>
+    </div>
   </nav>
 
   <div id="shell">
