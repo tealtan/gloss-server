@@ -10,8 +10,12 @@
   .url { color: #ccc; }
 
   p {
-    color: #bbb;
+    color: #aaa;
     .selected { color: #000; }
+  }
+
+  .highlight-source {
+    line-height: 1;
   }
 
   ul {
@@ -20,15 +24,12 @@
 
     li {
       display: inline-block;
-      margin-right: 5px;
       font-size: 14px;
       a:hover { text-decoration: underline; }
     }
   }
 
   .highlights-index & {
-    @extend .grid-width-col4;
-    padding: 0 40px 50px 0;
 
     .title {
       font-size: 16px; 
@@ -37,6 +38,10 @@
 
       display: inline-block;
       min-height: 51px;
+    }
+    .url {
+      font-family: $sans-10;
+      font-size: 12px;
     }
     p {
       .selected {
@@ -101,6 +106,8 @@
 
   .highlight {
     float: left;
+    @extend .grid-width-col4;
+    padding: 0 40px 50px 0;
   }
 }
 
@@ -108,4 +115,75 @@
   border-top: 1px solid #eee;
   padding-top: 50px;
   clear: both;
+}
+
+.highlights-collection,
+.highlights-single {
+  .highlight {
+    a.highlight-source {
+      .url { opacity: 0; -webkit-transition: opacity 0.2s linear; }
+      &:hover .url { opacity: 1; -webkit-transition: opacity 0.2s linear; }
+    }
+  }
+}
+
+.highlights-collection {
+  @extend .highlights-index;
+
+  h1 {
+    @extend .grid-offset-col2;
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    @extend .grid-offset-col2;
+    font-size: 36px;
+    margin-bottom: 50px;
+    margin-left: 210px;
+  }
+
+  .highlights-stream {
+
+    .highlight {
+      padding: 25px 50px 50px 50px;
+
+      p, p .selected {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .title {
+        display: block;
+        min-height: 0;
+        margin-bottom: 3px;
+      }
+      .url { display: block; }
+      .tools { text-align: right; }
+    }
+
+  }
+}
+
+.highlights-single {
+  @extend .highlights-index;
+
+  .fullbleed-content {
+    // Can’t decide between these two:
+    // padding: 75px 150px;
+    padding: 50px 75px 50px 260px;
+  }
+
+  .highlight {
+    p, p .selected {
+      font-size: 28px;
+      line-height: 1.6;
+    }
+
+    .title { min-height: 0; }
+
+    ul li, ul li a { font-size: 15px; }
+  }
+
 }

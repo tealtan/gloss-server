@@ -1,12 +1,16 @@
 @import "vars";
 
 body {
-  
+
 }
 
 #shell {
   @extend .grid-container-col12;
   padding: 70px 70px 0 70px;
+
+  .highlights-single & {
+    padding: 0;
+  }
 }
 
 nav {
@@ -74,6 +78,11 @@ aside {
   }
 }
 
+.fullbleed-content {
+  background-color: #fff;
+  padding: 0px;
+}
+
 .pagination {
   width: 500px;
   margin: 50px auto 0 auto;
@@ -107,7 +116,7 @@ a#bookmarklet {
   display: block;
   padding: 10px 10px 8px 10px;
   margin: 15px 0;
-  background-color: #e5e1de;
+  border: 1px solid #e5e1de;
   border-radius: 3px;
 
   text-decoration: none;
@@ -116,9 +125,13 @@ a#bookmarklet {
   color: #666;
   text-align: center;
 
+  -webkit-transition: background-color 0.15s linear;
+
   &:hover {
     color: #666;
-    background-color: #ded8d5;
+    background-color: #e5e1de;
+    border: 1px solid #e5e1de;
     text-decoration: none;
+    -webkit-transition: background-color 0.15s linear;
   }
 }

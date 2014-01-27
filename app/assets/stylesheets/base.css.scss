@@ -16,6 +16,7 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
   font-family: $serif-10;
   line-height: 1.3;
+  font-weight: 400;
   margin: 0 0 10px 0;
 }
 
@@ -44,6 +45,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.notice, .alert {
+  position: absolute;
 }
 
 #notice {

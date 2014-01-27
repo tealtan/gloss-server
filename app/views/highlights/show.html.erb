@@ -1,24 +1,26 @@
 <% provide(:title, "Highlighted “" + @highlight.selected_text + "”") %>
-<% provide(:page_class, 'admin-index') %>
+<% provide(:page_class, 'highlights-single') %>
 
-<%= link_to '← Back', highlights_path, :class => "button-action" %>
+<div class="fullbleed-content">
 
-<div class="highlight">
-
-  <a href="<%= @highlight.page_url %>">
-    <span class="title"><%= @highlight.page_title %></span><br/>
-    <span class="url"><%= @highlight.page_url %></span>
-  </a>
-
-  <%= combine_highlight(@highlight.selected_text, @highlight.surrounding_text) %>
-
-  <ul>
-    <li><%= User.find(@highlight.user_id).username %> —</li>
-    <li><%= link_to time_ago_in_words(@highlight.created_at)+' ago', @highlight %></li>
-    <% if current_user.try(:admin?) %>
-      <li><%= link_to 'Edit', edit_highlight_path(@highlight) %></li>
-      <li><%= link_to 'Destroy', @highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <% end %>
-  </ul>
+  <div class="highlight">
   
+    <a class="highlight-source" href="<%= @highlight.page_url %>">
+      <span class="title"><%= @highlight.page_title %></span>
+      <span class="url"><%= @highlight.page_url %></span>
+    </a>
+  
+    <%= combine_highlight(@highlight.selected_text, @highlight.surrounding_text) %>
+  
+    <ul>
+      <li>Found by @<%= User.find(@highlight.user_id).username %> · </li>
+      <li><%= link_to time_ago_in_words(@highlight.created_at)+' ago', @highlight %></li>
+      <% if current_user.try(:admin?) %>
+        <li> · <%= link_to 'Edit', edit_highlight_path(@highlight) %> · </li>
+        <li><%= link_to 'Destroy', @highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+    
+  </div>
+
 </div>
