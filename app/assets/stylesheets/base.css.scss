@@ -47,12 +47,88 @@ div {
   }
 }
 
+@keyframes msg-appear {
+  0%, 100% { top: -50px; left: 15px; }
+  20%, 80% { top: 15px; left: 15px; }
+}
+
+@-webkit-keyframes msg-appear {
+  0%, 100% { top: -50px; left: 15px; }
+  20%, 80% { top: 15px; left: 15px; }
+}
+
 .notice, .alert {
   position: absolute;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+
+  top: -50px;
+  left: 15px;
+  animation: msg-appear 3s ease-in 1 alternate;
+}
+
+.notice {
+  color: #2bbe3c;
 }
 
 #notice {
   color: green;
+}
+
+label {
+  display: block;
+  display: none;
+  margin-bottom: 10px;
+
+  &.user_remember_me {
+    display: inline;
+    font-family: $sans-10;
+    font-size: 13px;
+  }
+}
+
+input {
+  border: 0;
+  padding: 12px 10px;
+  margin: 0 0 20px 0;
+  border: solid 1px #ddd;
+  width: 300px;
+  border-radius: 3px;
+
+  font-size: 16px;
+  font-family: $sans-10;
+  color: #000;
+
+  background-color: rgba(255,255,255,0);
+  transition: all 0.2s ease;
+
+  &:focus {
+    background-color: rgba(255,255,255,1);
+    border: solid 1px #ccc;
+    transition: all 0.2s ease;
+  }
+
+  &#user_remember_me {
+    width: auto;
+    margin-right: 5px;
+  }
+}
+
+input:focus::-webkit-input-placeholder  { color: #ccc; }
+input:focus::-moz-placeholder           { color: #ccc; }
+input:focus:-ms-input-placeholder       { color: #ccc; }
+
+input[type="submit"] {
+  background-color: #b5656d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+input:focus {
+  outline: none;
 }
 
 .field_with_errors {

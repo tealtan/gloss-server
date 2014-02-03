@@ -83,6 +83,14 @@ aside {
   padding: 0px;
 }
 
+.border-wrapper {
+  padding: 50px;
+  border: 3px solid #e5e5e5;
+  border-radius: 6px;
+  max-width: 410px;
+  margin: 0 auto;
+}
+
 .pagination {
   width: 500px;
   margin: 50px auto 0 auto;
@@ -133,5 +141,21 @@ a#bookmarklet {
     border: 1px solid #e5e1de;
     text-decoration: none;
     transition: background-color 0.15s linear;
+  }
+}
+
+.inline-secondary-links {
+  margin-top: 20px;
+
+  a {
+    font-family: $sans-10;
+    font-size: 13px;
+    display: inline-block;
+    color: #ccc;
+
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
   }
 }
