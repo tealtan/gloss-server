@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.9)
+    autoprefixer-rails (1.0.20140130)
+      execjs
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
     celluloid (0.15.2)
@@ -159,6 +161,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   coffee-rails (= 4.0.0)
   devise (= 3.0.0.rc)
   guard (>= 2.2.2)
