@@ -14,7 +14,7 @@ end
 gem 'pg', '0.15.1'
 
 gem 'sass-rails', '4.0.0.rc2'
-# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.0'
 gem 'jquery-rails', '2.2.1'
