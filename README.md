@@ -15,12 +15,13 @@ Gloss Server
 
 #### Frontend
 
-- [ ] Proper form styling for Sign In / Register pages
+- [X] Proper form styling for Sign In / Register pages
 - [X] Enable debugging view on dev environment
 - [X] Hide admin controls
 - [X] Add pagination to highlights index page
 - [X] Provide bookmarklet saving to user
 - [X] Provide staging / dev bookmarklet depending on environment
+- [ ] Responsify!
 
 #### Bookmarklet
 
@@ -36,8 +37,8 @@ Gloss Server
 #### Design
 
 - [X] Identity
-- [ ] Homepage
-- [ ] Register, Sign In pages
+- [X] Homepage
+- [X] Register, Sign In pages
 - [ ] User profile page
 - [X] Highlight page
 - [X] Stream page
