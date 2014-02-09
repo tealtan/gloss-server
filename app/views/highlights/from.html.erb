@@ -5,8 +5,22 @@
   <%= link_to '← Back', highlights_path, :class => "button-action" %>
 </aside>
 
-<h1>Highlights for</h1>
-<h3><%= params[:title] %></h3>
+<h1>
+  <% if params[:username] %>
+    <% if current_user.username == params[:username] %>
+      Your Highlights
+    <% else %>
+      <%= "Highlights from @" + params[:username] %>
+    <% end %>
+  <% end %>
+  <% if params[:title] %>
+    <%= "for " %>
+  <% end %>
+</h1>
+
+<% if params[:title] %>
+  <h3><%= params[:title] %></h3>
+<% end %>
 
 <div class="content">
   <div class="highlights-stream">

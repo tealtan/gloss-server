@@ -77,8 +77,11 @@ class HighlightsController < ApplicationController
 
   # GET /highlights/from/{query}
   def from
-    unless params[:title].nil?
+    if params[:title]
       @highlights = Highlight.order("id DESC").where("page_title LIKE ?", "%"+params[:title]+"%")
+    elsif params[:username]
+      user = User.find_by_username(params[:username]).id;
+      @highlights = Highlight.order("id DESC").where(user_id: user).page(params[:page]).per(25)
     end
   end
 

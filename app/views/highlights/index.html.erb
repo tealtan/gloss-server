@@ -11,7 +11,7 @@
     
        <% highlights.each do |highlight| %>
          <li>
-          <%= link_to highlight.page_title, root_url + '/from?title=' + url_encode(highlight.page_title) %>
+          <%= link_to highlight.page_title, root_url + '/from?title=' + url_encode(highlight.page_title) + "&username=" + url_encode(current_user.username) %>
         </li>
        <% end %>
     
