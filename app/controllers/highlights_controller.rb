@@ -1,6 +1,7 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
   before_filter :check_admin, only: [:edit, :update, :destroy]
+  before_filter :check_if_user_has_highlights, only: [:index]
   before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   # GET /highlights
@@ -105,15 +106,13 @@ class HighlightsController < ApplicationController
       # TODO: Should probably return a proper error if check fails.
     end
 
-    # def set_access_control_headers 
-    #   headers['Access-Control-Allow-Origin'] = request.env['HTTP_ORIGIN']
-    #   headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    #   headers['Access-Control-Max-Age'] = '1000'
-    #   headers['Access-Control-Allow-Headers'] = '*,x-requested-with'
-    # end
-
-    # def access_allowed?
-    #   allowed_sites = [request.env['HTTP_ORIGIN']] #you might query the DB or something, this is just an example
-    #   return allowed_sites.include?(request.env['HTTP_ORIGIN'])    
-    # end
+    def check_if_user_has_highlights
+      # Redirect the user to install bookmarklet if they don’t have highlights yet
+      if user_signed_in?
+        has_highlights = Highlight.where(user_id: current_user).count
+        if (has_highlights == 0)
+          redirect_to '/install'
+        end
+      end
+    end
 end
