@@ -55,8 +55,9 @@ $j('.sentence').on('click', function() {
       JSON.stringify({highlight: data})
     );
 
+    $j(this).addClass('highlighted');
+
   }
-  $j(this).toggleClass('highlighted');
 });
 
 // Load highlighting CSS styles
