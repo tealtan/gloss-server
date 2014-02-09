@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     render :text => '', :content_type => 'text/plain'
   end
 
+  def after_sign_in_path_for(user)
+    highlights_path
+  end
+
   protected
    
   def devise_parameter_sanitizer
