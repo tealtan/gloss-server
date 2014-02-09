@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>❦ Gloss – <%= yield(:title) %></title>
+  <meta description="Gloss is a highlighter for the Internet.">
+  <meta name="viewport" content="width=device-width">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +11,15 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="<%= yield(:page_class) %>">
+
+  <div id="shell">
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  
+  <%= yield %>
+
+  </div>
 
   <nav>
     <div class="container">
@@ -25,15 +36,6 @@
     </ul>
     </div>
   </nav>
-
-  <div id="shell">
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  
-  <%= yield %>
-
-  </div>
 
 </body>
 </html>

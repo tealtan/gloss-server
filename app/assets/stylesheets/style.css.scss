@@ -4,6 +4,14 @@
   @extend .grid-container-col12;
   padding: 70px 70px 0 70px;
 
+  @media screen and (max-width: 1000px) {
+    padding: 25px;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 10px;
+  }
+
   .highlights-single & {
     padding: 0;
   }
@@ -25,6 +33,20 @@ nav {
     bottom: 0px;
   }
 
+  @media screen and (max-width: 1000px) {
+    clear: both;
+    position: static;
+    border-top: 1px solid #dedede;
+    margin: 50px 0 0 0;
+    padding: 15px 50px;
+    width: 100%;
+
+    ul { position: static; }
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 15px 20px;
+  }
 
   li {
     list-style-type: none;
@@ -64,6 +86,15 @@ aside {
   @extend .grid-offset-col2;
   background-color: #fff;
   padding: 70px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 0px;
+    padding: 50px;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 20px;
+  }
 
   h1 {
     max-width: 800px;

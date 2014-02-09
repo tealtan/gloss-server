@@ -76,6 +76,9 @@
   h1 {
     color: #333;
     margin-bottom: 30px;
+    @media screen and (max-width: 1000px) {
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -83,6 +86,9 @@
 
   h2 {
     margin: 30px 0 0 0;
+    @media screen and (max-width: 700px) {
+      margin: 15px 0 0 0;
+    }
   }
 
   li {
@@ -115,6 +121,10 @@
   border-top: 1px solid #eee;
   padding-top: 50px;
   clear: both;
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 10px;
+  }
 }
 
 .highlights-collection,
@@ -130,11 +140,20 @@
 .highlights-collection {
   @extend .highlights-index;
 
+  aside {
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
+  }
+
   h1 {
     @extend .grid-offset-col2;
     font-style: italic;
     font-size: 20px;
     margin-bottom: 5px;
+    @media screen and (max-width: 1000px) {
+      margin-left: 0px;
+    }
   }
 
   h3 {
@@ -142,12 +161,22 @@
     font-size: 36px;
     margin-bottom: 50px;
     margin-left: 210px;
+    @media screen and (max-width: 1000px) {
+      margin-left: 0px;
+      margin-bottom: 15px;
+    }
+    @media screen and (max-width: 700px) {
+      font-size: 22px;
+    }
   }
 
   .highlights-stream {
 
     .highlight {
       padding: 25px 50px 50px 50px;
+      @media screen and (max-width: 700px) {
+        padding: 25px 0 0 0;
+      }
 
       p, p .selected {
         font-size: 16px;
@@ -171,17 +200,39 @@
 
   .fullbleed-content {
     padding: 75px 150px;
+    @media screen and (max-width: 1000px) {
+      padding: 50px;
+    }
+    @media screen and (max-width: 700px) {
+      padding: 25px;
+    }
   }
 
   .highlight {
     p, p .selected {
       font-size: 28px;
       line-height: 1.6;
+
+      @media screen and (max-width: 700px) {
+        font-size: 22px;
+        line-height: 1.6;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 18px;
+        line-height: 1.5;
+      }
     }
 
     .title { min-height: 0; }
 
-    ul li, ul li a { font-size: 15px; }
+    ul li, ul li a {
+      font-size: 15px;
+
+      @media screen and (max-width: 700px) {
+        font-size: 12px;
+      }
+    }
   }
 
 }

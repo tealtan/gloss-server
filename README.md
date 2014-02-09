@@ -21,7 +21,7 @@ Gloss Server
 - [X] Add pagination to highlights index page
 - [X] Provide bookmarklet saving to user
 - [X] Provide staging / dev bookmarklet depending on environment
-- [ ] Responsify!
+- [X] Responsify!
 
 #### Bookmarklet
 
