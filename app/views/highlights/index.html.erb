@@ -1,41 +1,9 @@
 <% provide(:title, 'All Highlights') %>
 <% provide(:page_class, 'highlights-index') %>
 
-<aside>
-  <h1>Highlights</h1>
-  <p><em>Some of your recent highlights.</em></p>
-
-  <ul class="pagination">
-    <li><%= link_to_previous_page @highlights, '← Previous' %></li>
-    <li><%= link_to_next_page @highlights, 'Next →' %></li>
-  </ul>
-
-  <%= link_to '+ New Highlight', new_highlight_path, :class => "button-action" %>
-</aside>
-
 <div class="content">
-
-  <div class="highlights-explore">
+  <h1>Highlights</h1>
   
-    <% @highlights.each do |highlight| %>
-      <div class="highlight">
-
-        <ul>
-          <!-- <li><%= User.find(highlight.user_id).username %> —</li> -->
-          <li><%= link_to time_ago_in_words(highlight.created_at)+' ago', highlight %></li>
-        </ul>
-
-        <a href="<%= highlight.page_url %>">
-          <span class="title"><%= highlight.page_title %></span><br/>
-        </a>
-
-        <p><span class="selected"><%= highlight.selected_text %></span></p>
-        
-      </div><!--end .highlights-->
-    <% end %>
-
-  </div><!--end .highlights-explore-->
-
   <div class="highlights-listing">
     <% @highlights_by_month.each do |month_year, highlights| %>
       <h2><%= month_year %></h2>
