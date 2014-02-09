@@ -7,7 +7,7 @@
 .highlight {
   a:hover { text-decoration: none; }
   a:hover .title { text-decoration: underline; }
-  .url { color: #ccc; }
+  .url { color: #ccc; word-wrap: break-word; }
 
   p {
     color: #aaa;
