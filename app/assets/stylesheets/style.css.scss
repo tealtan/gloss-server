@@ -112,6 +112,9 @@ aside {
 
 .border-wrapper {
   padding: 50px;
+  @media screen and (max-width: 700px) {
+    padding: 25px;
+  }
   border: 3px solid #e5e5e5;
   border-radius: 6px;
   max-width: 410px;
