@@ -9,7 +9,7 @@ Gloss Server
 
 - [X] Basic authentication
 - [X] Better pagination of highlights
-- [ ] Set up pinging to prevent Heroku dyno idling
+- [X] Set up pinging to prevent Heroku dyno idling
 - [ ] Rework highlight pages to include username?
 - [X] Add creation of unique usernames on registration
 
