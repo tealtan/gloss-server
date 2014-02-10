@@ -97,7 +97,11 @@ input {
   padding: 12px 10px;
   margin: 0 0 20px 0;
   border: solid 1px #ddd;
-  width: 300px;
+
+  width: 100%;
+  min-width: 260px;
+  max-width: 300px;
+  
   border-radius: 3px;
 
   font-size: 16px;
