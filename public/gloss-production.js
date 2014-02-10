@@ -51,7 +51,7 @@ $j('.sentence').on('click', function() {
       user_id: 1
     };
 
-    $j.post("http://gloss-server.herokuapp.com/highlights.json"+urlParams, 
+    $j.post("http://www.glossed.it/highlights.json"+urlParams, 
       JSON.stringify({highlight: data})
     );
 

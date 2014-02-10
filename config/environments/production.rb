@@ -79,5 +79,5 @@ GlossServer::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Set mailer host.
-  config.action_mailer.default_url_options = { :host => 'http://gloss-server.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://www.glossed.it' }
 end
