@@ -48,7 +48,7 @@ $j('.sentence').on('click', function() {
       page_url: pageUrl,
       selected_text: highlightedText,
       surrounding_text: surroundingText,
-      user_id: 1
+      user_id: window.gloss_id
     };
 
     $j.post("http://www.glossed.it/highlights.json"+urlParams, 
