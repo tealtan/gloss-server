@@ -1,0 +1,17 @@
+span.sentence {
+  background: none;
+}
+
+span.sentence,
+span.sentence:hover {
+    -webkit-transition: background 0.1s linear;
+}
+span.sentence:hover {
+    cursor: pointer;
+    background: #FFFBCC;
+}
+
+span.sentence.highlighted,
+span.sentence.highlighted:hover {
+    background: #FFF461;
+}

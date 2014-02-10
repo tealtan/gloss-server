@@ -63,7 +63,7 @@ $j('.sentence').on('click', function() {
 // Load highlighting CSS styles
 
 var link = document.createElement("link");
-var url = "http://tanmade.com/making/gloss-v2/gloss.css"
+var url = "http://www.glossed.it/gloss.css"
 link.type = "text/css";
 link.rel = "stylesheet";
 link.href = url;
