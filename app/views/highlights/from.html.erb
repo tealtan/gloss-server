@@ -7,10 +7,12 @@
 
 <h1>
   <% if params[:username] %>
-    <% if current_user.username == params[:username] %>
-      Your Highlights
-    <% else %>
-      <%= "Highlights from @" + params[:username] %>
+    <% if current_user %>
+      <% if current_user.username == params[:username] %>
+        Your Highlights
+      <% else %>
+        <%= "Highlights from @" + params[:username] %>
+      <% end %>
     <% end %>
   <% end %>
   <% if params[:title] %>
