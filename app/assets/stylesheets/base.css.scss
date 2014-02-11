@@ -33,6 +33,18 @@ p {
   line-height: 1.4;
 }
 
+span.extend-p {
+  @extend p;
+  display: block;
+
+  a { border-bottom: 1px solid #aaa; }
+  a:hover { text-decoration: none; border-bottom: 1px solid #333; }
+
+  & + & {
+    margin-top: 15px;
+  }
+}
+
 a {
   color: #000;
   text-decoration: none;
