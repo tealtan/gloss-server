@@ -195,6 +195,26 @@ a#bookmarklet {
   }
 }
 
+.more-link {
+  display: block;
+  font-family: $sans-10;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #bbb;
+  transition: color 0.15s linear;
+
+  &:hover { text-decoration: none; color: #be0a00; }
+}
+
+.divider-gray-small {
+  display: block;
+  margin: 0px auto 15px auto;
+  width: 50px;
+  height: 1px;
+  background-color: #ddd;
+}
+
 .signature {
   text-align: center;
   font-size: 22px;

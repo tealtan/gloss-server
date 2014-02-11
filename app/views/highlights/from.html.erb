@@ -49,5 +49,12 @@
       </div>
     <% end %>
 
+    <% if @otherhighlights %>
+      <% if @otherhighlights > 0 %>
+        <span class="divider-gray-small"></span>
+        <%= link_to @otherhighlights.to_s + ' more highlights by other people →', '/from?title=' + url_encode(params[:title]), :class => "more-link" %>
+      <% end %>
+    <% end %>
+
   </div>
 </div>

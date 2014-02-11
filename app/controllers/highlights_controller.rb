@@ -82,6 +82,7 @@ class HighlightsController < ApplicationController
       if params[:username]
         user = User.find_by_username(params[:username]).id;
         @highlights = Highlight.order("id DESC").where(user_id: user).where("page_title LIKE ?", "%"+params[:title]+"%")
+        @otherhighlights = Highlight.order("id DESC").where("page_title LIKE ?", "%"+params[:title]+"%").count - @highlights.count
       else
         @highlights = Highlight.order("id DESC").where("page_title LIKE ?", "%"+params[:title]+"%")
       end
