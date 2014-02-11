@@ -1,6 +1,7 @@
 class HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
-  before_filter :check_admin, only: [:edit, :update, :destroy]
+  before_filter :check_admin, only: [:edit, :update]
+  before_filter :check_ownership, only: [:destroy]
   before_filter :check_if_user_has_highlights, only: [:index]
   before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -103,6 +104,14 @@ class HighlightsController < ApplicationController
 
     def check_admin
       if !current_user.try(:admin?)
+        redirect_to '/'
+      end
+    end
+
+    def check_ownership
+      user = current_user.id
+      highlight = Highlight.find(params[:id])
+      if user != highlight.user_id
         redirect_to '/'
       end
     end
