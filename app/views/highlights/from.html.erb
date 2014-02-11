@@ -31,11 +31,13 @@
         <ul class="tools">
           <li>Found by <%= User.find(highlight.user_id).username %> · </li>
           <li><%= link_to time_ago_in_words(highlight.created_at)+" ago", highlight %></li>
-          <% if current_user.try(:admin?) %>
-            <li> · <%= link_to 'Edit', edit_highlight_path(highlight) %></li>
-            <li> · <%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-          <% elsif current_user.id == highlight.user_id %>
-            <li> · <%= link_to 'Delete', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <% if current_user %>
+            <% if current_user.try(:admin?) %>
+              <li> · <%= link_to 'Edit', edit_highlight_path(highlight) %></li>
+              <li> · <%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% elsif current_user.id == highlight.user_id %>
+              <li> · <%= link_to 'Delete', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% end %>
           <% end %>
         </ul>
     
