@@ -112,7 +112,9 @@ class HighlightsController < ApplicationController
       user = current_user.id
       highlight = Highlight.find(params[:id])
       if user != highlight.user_id
-        redirect_to '/'
+        if !current_user.try(:admin?)
+          redirect_to '/'
+        end
       end
     end
 
