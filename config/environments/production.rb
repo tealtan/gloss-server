@@ -86,8 +86,8 @@ GlossServer::Application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     :domain => "glossed.it",
-    :user_name => ENV[MAILGUN_USER],
-    :password => ENV[MAILGUN_PASSWORD]
+    :user_name => ENV['MAILGUN_USER'],
+    :password => ENV['MAILGUN_PASSWORD']
   }
 
 end
