@@ -79,5 +79,15 @@ GlossServer::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Set mailer host.
-  config.action_mailer.default_url_options = { :host => 'http://www.glossed.it' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'glossed.it' }
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "glossed.it",
+    :user_name => ENV[MAILGUN_USER],
+    :password => ENV[MAILGUN_PASSWORD]
+  }
+
 end
