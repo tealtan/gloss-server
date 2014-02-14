@@ -20,7 +20,8 @@ test:
   pool: 5
   timeout: 5000
 
-adapter: postgresql
+production:
+  adapter: postgresql
   host: ENV['DB_HOST']
   username: ENV['DB_USER']
   password: ENV['DB_PASSWORD']
