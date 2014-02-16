@@ -9,5 +9,8 @@ class StaticPagesController < ApplicationController
   end
 
   def install
+    unless user_signed_in?
+      redirect_to "/"
+    end
   end
 end
