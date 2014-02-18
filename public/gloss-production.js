@@ -64,7 +64,7 @@ $j('.sentence').on('click', function() {
 // Load highlighting CSS styles
 
 var link = document.createElement("link");
-var url = prototol+"//gloss-server.herokuapp.com/bookmarklet.css"
+var url = protocol+"//gloss-server.herokuapp.com/bookmarklet.css"
 link.type = "text/css";
 link.rel = "stylesheet";
 link.href = url;
