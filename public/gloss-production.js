@@ -1,4 +1,4 @@
-// Bookmarklet Version 0.3
+// Bookmarklet Version 0.4
 
 // User settings
 var urlParams = "?token="+window.gloss_token+"&user="+window.gloss_id;
@@ -6,6 +6,7 @@ var urlParams = "?token="+window.gloss_token+"&user="+window.gloss_id;
 // Set up variables
 var pageTitle = document.title;
 var pageUrl = window.location.href;
+var protocol = window.location.protocol;
 
 // No Conflict the jQuery
 $j = jQuery.noConflict(true);
@@ -51,7 +52,7 @@ $j('.sentence').on('click', function() {
       user_id: window.gloss_id
     };
 
-    $j.post("http://www.glossed.it/highlights.json"+urlParams, 
+    $j.post(protocol+"//gloss-server.herokuapp.com/highlights.json"+urlParams, 
       JSON.stringify({highlight: data})
     );
 
@@ -63,7 +64,7 @@ $j('.sentence').on('click', function() {
 // Load highlighting CSS styles
 
 var link = document.createElement("link");
-var url = "http://www.glossed.it/bookmarklet.css"
+var url = prototol+"//gloss-server.herokuapp.com/bookmarklet.css"
 link.type = "text/css";
 link.rel = "stylesheet";
 link.href = url;
